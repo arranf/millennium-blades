@@ -36,13 +36,13 @@
 </script>
 
 <div
-  class="text-gray-300 px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-700 hover:text-white"
+  class="text-gray-300 px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white"
 >
   {#if !timer}
-    <button type="button" on:click={startTimer}
+    <button class="font-medium " type="button" on:click={startTimer}
       >Start <span class="font-bold">{minutes}</span> Minute Timer</button
     >
   {:else}
-    <button on:click={cancelTimer}>{minutesLeft}:{secondsLeft}</button>
+    <button class="font-medium " on:click={cancelTimer}>{minutesLeft}:{secondsLeft}</button>
   {/if}
 </div>
