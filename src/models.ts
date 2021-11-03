@@ -5,8 +5,8 @@ export const enum ExpansionName {
   SPONSORS = "Sponsors: Mini Expansion #2",
   FUSION_CHAOS = "Fusion Chaos: Mini Expansion #3",
   FINAL_BOSSES = "Final Bosses: Mini Expansion #4",
-  PROFESSIONALS = "Professionals: Mini Expansion #6",
   FUTURES = "Futures: Mini Expansion #5",
+  PROFESSIONALS = "Professionals: Mini Expansion #6",
 }
 
 export interface Expansion {

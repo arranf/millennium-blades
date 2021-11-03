@@ -156,7 +156,6 @@ export const expansions: Expansion[] = [
   },
   {
     name: ExpansionName.FUSION_CHAOS,
-
     order: 4,
     characters: ["Raritti Sikarh", "Shafille DuCarte"],
     starterDecks: [],
@@ -216,4 +215,4 @@ export const expansions: Expansion[] = [
     premiumPacks: [],
     masterPacks: ["The Sports Set"],
   },
-];
+].sort((a, b) => a.order - b.order);
