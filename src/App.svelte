@@ -128,6 +128,11 @@
                 ? selectedSets.goldPromos.sort().join(", ")
                 : "None"}
             </p>
+            <p>
+              <strong>Prize Support</strong>: {selectedSets.goldPromoPrize.concat(selectedSets.silverPromoPrize).length > 0
+                ? selectedSets.goldPromoPrize.concat(selectedSets.silverPromoPrize).join(", ")
+                : "None"}
+            </p>
           </div>
         </div>
       </div>

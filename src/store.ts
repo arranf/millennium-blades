@@ -1,5 +1,5 @@
 import { Writable, writable } from "svelte/store";
-import type { Settings } from "./models";
+import { ExpansionName, Settings } from "./models";
 import { SETTINGS_NAME } from "./constants";
 
 export interface Timer {
@@ -19,9 +19,9 @@ export const timer: Writable<Timer> = writable({
 export const settings: Writable<Settings> = writable(getSettings());
 
 function getSettings(): Settings {
-  const settings = JSON.parse(localStorage.getItem(SETTINGS_NAME));
+  const settings = JSON.parse(localStorage.getItem(SETTINGS_NAME)) ?? {};
   return {
-    activeExpansions: settings.activeExpansions || [],
+    activeExpansions: settings?.activeExpansions ?? [ExpansionName.BASE_GAME],
     selectedSets: {
       bronzePromos: [],
       silverPromos: [],
@@ -31,7 +31,7 @@ function getSettings(): Settings {
       masterPacks: [],
       silverPromoPrize: [],
       goldPromoPrize: [],
-      ...(settings.selectedSets || {}),
+      ...settings?.selectedSets,
     },
   };
 }

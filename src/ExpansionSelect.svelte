@@ -29,11 +29,13 @@
         <button
           on:click={() => toggleExpansion(expansion)}
           type="button"
+          disabled={expansion == ExpansionName.BASE_GAME}
           class="inline-flex items-center mx-1 my-1 px-2 py-1 border border-transparent text-base font-small rounded-md shadow-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 {activeExpansions.includes(
             expansion
           )
             ? 'bg-green-600 hover:bg-green-700 focus:ring-green-500 '
-            : 'bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 '}"
+            : 'bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 '}
+            {expansion == ExpansionName.BASE_GAME ? 'cursor-not-allowed' : ''}"
           >{expansion}</button
         >
       {/each}
