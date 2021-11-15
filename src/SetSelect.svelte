@@ -1,36 +1,59 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import ExpansionSelect from "./ExpansionSelect.svelte";
+
+  import {settings} from "./store";
   import { getRandom } from "./utils";
 
-  export let selectedPacks: string[];
   export let filteredPacks: string[];
+  export let previouslySelectedTypeName: string = undefined;
   export let limit: number;
+  export let typeName: string;
 
   export let title;
   export let color = "pink";
   export let colorIntensity = "600";
   export let leadingColor = "white";
 
+  let selectedPacks: string[];
+  let previouslySelectedPacks: string[];
+
   const dispatch = createEventDispatcher();
 
   function updateSelectedPacks(set: string) {
-    const indexOf = selectedPacks.indexOf(set);
-    if (indexOf >= 0) {
-      selectedPacks.splice(indexOf, 1);
-    } else {
-      selectedPacks.push(set);
-    }
-    selectedPacks = selectedPacks;
+    settings.update(settings => {
+      const indexOf = selectedPacks.indexOf(set);
+      if (indexOf >= 0) {
+        selectedPacks.splice(indexOf, 1);
+      } else {
+        selectedPacks.push(set);
+      }
+      const update = {
+        ...settings,
+        selectedSets: {
+          ...settings.selectedSets,
+          [typeName]: selectedPacks
+        }
+      };
+      return update; 
+    })
     dispatch("setchange", { set });
   }
 
   function randomise() {
-    selectedPacks = getRandom(filteredPacks, limit);
-    for (const pack of selectedPacks) {
-      dispatch("setchange", { set: pack });
-    }
+    settings.update(settings => ({
+        ...settings,
+        selectedSets: {
+          ...settings.selectedSets,
+          [typeName]: getRandom(filteredPacks, limit, previouslySelectedPacks)
+        }
+      }));
+      dispatch("setchange");
   }
+
+  settings.subscribe(settings => {
+    selectedPacks = settings.selectedSets[typeName];
+    previouslySelectedPacks = settings.selectedSets[previouslySelectedTypeName] || [];
+  });
 </script>
 
 <div class="mx-4 py-6 sm:px-6 lg:px-8">
@@ -86,8 +109,8 @@
                   checked={selectedPacks.includes(set)}
                   id={set}
                   name={set}
-                  disabled={!selectedPacks.includes(set) &&
-                    selectedPacks.length >= limit}
+                  disabled={previouslySelectedPacks.includes(set) || (!selectedPacks.includes(set) &&
+                    selectedPacks.length >= limit)}
                   type="checkbox"
                   class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
                 />

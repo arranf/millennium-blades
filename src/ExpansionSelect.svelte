@@ -1,14 +1,20 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
   import { ExpansionName } from "./models";
+  import {settings} from "./store";
 
-  export let activeExpansions: ExpansionName[];
+  let activeExpansions: ExpansionName[];
 
   const dispatch = createEventDispatcher();
 
   function toggleExpansion(expansion: ExpansionName) {
     dispatch("expansionchange", { expansion });
   }
+
+  settings.subscribe(settings => {
+    activeExpansions = settings.activeExpansions;
+  });
+
 </script>
 
 <!-- TODO: Make collapsable -->

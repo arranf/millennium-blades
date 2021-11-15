@@ -7,47 +7,41 @@
   import Header from "./Header.svelte";
   import ExpansionSelect from "./ExpansionSelect.svelte";
   import SetSelect from "./SetSelect.svelte";
-
-  const SETTINGS_NAME = "mb-settings";
-
-  const SELECT_COUNTS = {
-    bronzePromos: 2,
-    silverPromos: 2,
-    goldPromos: 1,
-    expansionPacks: 6,
-    premiumPacks: 5,
-    masterPacks: 4,
-  };
+  import Countdown from "./Countdown.svelte";
+  import { SELECT_COUNTS, SETTINGS_NAME } from "./constants";
+  import {settings} from "./store";
 
   let loading = false;
   let loadingCancel;
-
+  
   let activeExpansions: ExpansionName[];
   let filteredExpansions: Expansion[];
   let selectedSets: SelectedSets;
 
-  function filter(expansions: Expansion[]) {
-    let filtered = expansions.filter((e: Expansion) =>
-      activeExpansions.length === 0 ? true : activeExpansions.includes(e.name)
-    );
-    return filtered;
+  function filter(activeExpansions: ExpansionName[]) {
+    return expansions.filter((e: Expansion) => 
+      activeExpansions.length === 0 ? true : activeExpansions.includes(e.name));
   }
 
   function handleExpansionChange({ detail }) {
-    const indexOf = activeExpansions.indexOf(detail.expansion);
-    if (indexOf >= 0) {
-      activeExpansions.splice(indexOf, 1);
-    } else {
-      activeExpansions.push(detail.expansion);
-    }
-
-    activeExpansions = activeExpansions;
-    filteredExpansions = filter(expansions);
+    settings.update(settings => {
+      const indexOf = settings.activeExpansions.indexOf(detail.expansion);
+      const activeExpansions = settings.activeExpansions;
+      if (indexOf >= 0) {
+        activeExpansions.splice(indexOf, 1);
+      } else {
+        activeExpansions.push(detail.expansion);
+      }
+      return {
+        ...settings,
+        activeExpansions
+      }
+    });
 
     persist();
   }
 
-  function handleSetChange({ detail }) {
+  function handleSetChange(_) {
     persist();
   }
 
@@ -58,43 +52,26 @@
     }
     localStorage.setItem(
       SETTINGS_NAME,
-      JSON.stringify({ activeExpansions, selectedSets })
+      JSON.stringify({activeExpansions, selectedSets})
     );
     loadingCancel = setTimeout(() => (loading = false), 400);
   };
 
-  function getSettings(): {
-    activeExpansions: ExpansionName[];
-    selectedSets: SelectedSets;
-  } {
-    return (
-      JSON.parse(localStorage.getItem(SETTINGS_NAME)) || {
-        activeExpansions: [],
-        selectedSets: {
-          bronzePromos: [],
-          silverPromos: [],
-          goldPromos: [],
-          expansionPacks: [],
-          premiumPacks: [],
-          masterPacks: [],
-        },
-      }
-    );
-  }
-
   onMount(async () => {
     loading = true;
-    let settings = getSettings();
-    activeExpansions = settings.activeExpansions;
-    selectedSets = settings.selectedSets;
-    filteredExpansions = filter(expansions);
-
+    settings.subscribe(settings => {    
+      activeExpansions = settings.activeExpansions;
+      selectedSets = settings.selectedSets;
+      filteredExpansions = filter(activeExpansions);
+    })
     loadingCancel = setTimeout(() => (loading = false), 400);
+
   });
 </script>
 
 <main>
   <Header />
+  <Countdown />
   {#if activeExpansions && filteredExpansions}
     <header class="bg-white shadow">
       <div class="py-6 px-4 sm:px-6 lg:px-8">
@@ -105,7 +82,6 @@
     </header>
     <div class="mx-4 py-6 sm:px-6 lg:px-8">
       <ExpansionSelect
-        {activeExpansions}
         on:expansionchange={handleExpansionChange}
       />
 
@@ -164,7 +140,7 @@
         color="green"
         colorIntensity="200"
         leadingColor="gray-600"
-        bind:selectedPacks={selectedSets.expansionPacks}
+        typeName="expansionPacks"
         limit={SELECT_COUNTS.expansionPacks}
         on:setchange={handleSetChange}
       />
@@ -175,7 +151,7 @@
         color="blue"
         colorIntensity="50"
         leadingColor="gray-600"
-        bind:selectedPacks={selectedSets.premiumPacks}
+        typeName="premiumPacks"
         limit={SELECT_COUNTS.premiumPacks}
         on:setchange={handleSetChange}
       />
@@ -185,7 +161,7 @@
         title="Master Sets"
         color="purple"
         colorIntensity="300"
-        bind:selectedPacks={selectedSets.masterPacks}
+        typeName="masterPacks"
         limit={SELECT_COUNTS.masterPacks}
         on:setchange={handleSetChange}
       />
@@ -195,7 +171,7 @@
         title="Bronze Promos"
         color="yellow"
         colorIntensity="700"
-        bind:selectedPacks={selectedSets.bronzePromos}
+        typeName="bronzePromos"
         limit={SELECT_COUNTS.bronzePromos}
         on:setchange={handleSetChange}
       />
@@ -206,8 +182,9 @@
         color="gray"
         colorIntensity="200"
         leadingColor="gray-600"
-        bind:selectedPacks={selectedSets.silverPromos}
+        typeName="silverPromos"
         limit={SELECT_COUNTS.silverPromos}
+        previouslySelectedTypeName="silverPromoPrize"
         on:setchange={handleSetChange}
       />
 
@@ -216,8 +193,31 @@
         title="Gold Promos"
         color="yellow"
         colorIntensity="300"
-        bind:selectedPacks={selectedSets.goldPromos}
+        typeName="goldPromos"
         limit={SELECT_COUNTS.goldPromos}
+        previouslySelectedTypeName="goldPromoPrize"
+        on:setchange={handleSetChange}
+      />
+
+      <SetSelect
+        filteredPacks={filteredExpansions.flatMap((e) => e.silverPromos).sort()}
+        title="Silver Promo Prize Support"
+        color="gray"
+        colorIntensity="200"
+        previouslySelectedTypeName="silverPromos"
+        typeName="silverPromoPrize"
+        limit={SELECT_COUNTS.goldPromoPrize}
+        on:setchange={handleSetChange}
+      />
+
+      <SetSelect
+        filteredPacks={filteredExpansions.flatMap((e) => e.goldPromos).sort()}
+        title="Gold Promo Prize Support"
+        color="yellow"
+        colorIntensity="300"
+        previouslySelectedTypeName="goldPromos"
+        limit={SELECT_COUNTS.silverPromoPrize}
+        typeName="goldPromoPrize"
         on:setchange={handleSetChange}
       />
     </div>

@@ -1,48 +1,41 @@
 <script lang="ts">
+import type { Writable } from 'svelte/store';
+
+
+  import {Timer, timer} from './store';
   export let minutes: number;
-  let timeLeft: number = 0;
-  let minutesLeft: number;
-  let secondsLeft: string;
-  let timer;
+
 
   function startTimer() {
-    timeLeft = minutes * 60 * 1000 + 1000; // Extra 1000 seconds because we begin by decrementing
+    timer.update((t: Writable<Timer>) => ({...t, timeLeft: minutes * 60 * 1000 + 1000, timer: setInterval(updateClock, 1000)})); // Extra 1000 seconds because we begin by decrementing
     updateClock();
-    timer = setInterval(updateClock, 1000);
   }
 
   function updateClock() {
-    timeLeft = timeLeft - 1000;
-    minutesLeft = Math.floor((timeLeft / 60 / 1000) % 60);
-    let seconds = Math.floor((timeLeft / 1000) % 60);
-    secondsLeft =
-      seconds.toString().length > 1 ? seconds.toString() : `0${seconds}`;
-
-    if (timeLeft <= 0) {
-      let audio = new Audio("Sirenenalarm.ogg");
-      audio.play();
-
-      setTimeout(() => {
-        cancelTimer();
-      });
-      return;
-    }
-  }
-
-  function cancelTimer() {
-    clearInterval(timer);
-    timer = undefined;
+    timer.update((t: Writable<Timer>)  => {
+      if (t.timeLeft <= 0) {
+        return {...t, timeLeft: 0};
+      } else {
+        const remainingMs = t.timeLeft - 1000;
+  
+        const seconds = Math.floor((remainingMs / 1000) % 60);
+        return {
+          ...t,
+          timeLeft: remainingMs,
+          minutesLeft:  Math.floor((remainingMs / 60 / 1000) % 60),
+          secondsLeft: seconds.toString().length > 1 ? seconds.toString() : `0${seconds}`
+        }
+      }
+      
+      
+    });
   }
 </script>
 
 <div
   class="text-gray-300 px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white"
 >
-  {#if !timer}
     <button class="font-medium " type="button" on:click={startTimer}
       >Start <span class="font-bold">{minutes}</span> Minute Timer</button
     >
-  {:else}
-    <button class="font-medium " on:click={cancelTimer}>{minutesLeft}:{secondsLeft}</button>
-  {/if}
-</div>
+ </div>
