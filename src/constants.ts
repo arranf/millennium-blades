@@ -7,6 +7,6 @@ export const SELECT_COUNTS = {
   expansionPacks: 6,
   premiumPacks: 5,
   masterPacks: 4,
+  bronzePromoPrize: 1,
   silverPromoPrize: 1,
-  goldPromoPrize: 1,
 };

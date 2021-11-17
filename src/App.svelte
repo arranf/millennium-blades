@@ -129,8 +129,8 @@
                 : "None"}
             </p>
             <p>
-              <strong>Prize Support</strong>: {selectedSets.goldPromoPrize.concat(selectedSets.silverPromoPrize).length > 0
-                ? selectedSets.goldPromoPrize.concat(selectedSets.silverPromoPrize).join(", ")
+              <strong>Prize Support</strong>: {selectedSets.bronzePromoPrize.concat(selectedSets.silverPromoPrize).length > 0
+                ? selectedSets.bronzePromoPrize.concat(selectedSets.silverPromoPrize).join(", ")
                 : "None"}
             </p>
           </div>
@@ -178,6 +178,7 @@
         colorIntensity="700"
         typeName="bronzePromos"
         limit={SELECT_COUNTS.bronzePromos}
+        previouslySelectedTypeName="bronzePromoPrize"
         on:setchange={handleSetChange}
       />
 
@@ -200,7 +201,17 @@
         colorIntensity="300"
         typeName="goldPromos"
         limit={SELECT_COUNTS.goldPromos}
-        previouslySelectedTypeName="goldPromoPrize"
+        on:setchange={handleSetChange}
+      />
+
+      <SetSelect
+        filteredPacks={filteredExpansions.flatMap((e) => e.bronzePromos).sort()}
+        title="Bronze Promo Prize Support"
+        color="yellow"
+        colorIntensity="700"
+        previouslySelectedTypeName="bronzePromos"
+        limit={SELECT_COUNTS.bronzePromoPrize}
+        typeName="bronzePromoPrize"
         on:setchange={handleSetChange}
       />
 
@@ -211,20 +222,10 @@
         colorIntensity="200"
         previouslySelectedTypeName="silverPromos"
         typeName="silverPromoPrize"
-        limit={SELECT_COUNTS.goldPromoPrize}
+        limit={SELECT_COUNTS.silverPromoPrize}
         on:setchange={handleSetChange}
       />
 
-      <SetSelect
-        filteredPacks={filteredExpansions.flatMap((e) => e.goldPromos).sort()}
-        title="Gold Promo Prize Support"
-        color="yellow"
-        colorIntensity="300"
-        previouslySelectedTypeName="goldPromos"
-        limit={SELECT_COUNTS.silverPromoPrize}
-        typeName="goldPromoPrize"
-        on:setchange={handleSetChange}
-      />
     </div>
   {/if}
 </main>

@@ -29,8 +29,8 @@ function getSettings(): Settings {
       expansionPacks: [],
       premiumPacks: [],
       masterPacks: [],
+      bronzePromoPrize: [],
       silverPromoPrize: [],
-      goldPromoPrize: [],
       ...settings?.selectedSets,
     },
   };

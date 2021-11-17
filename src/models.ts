@@ -29,8 +29,8 @@ export interface SelectedSets {
   expansionPacks: string[];
   premiumPacks: string[];
   masterPacks: string[];
+  bronzePromoPrize: string[];
   silverPromoPrize: string[];
-  goldPromoPrize: string[];
 }
 
 export interface Settings {
