@@ -15,13 +15,13 @@
     secondsLeft = t.secondsLeft;
     minutesLeft = t.minutesLeft;
     
-    if (t.timeLeft <= 0) {
+    if (t.timeLeft === 0) {
       const audio = new Audio("Sirenenalarm.ogg");
       audio.play();
 
       setTimeout(() => {
         cancelTimer();
-      }, 1000);
+      }, 5000);
       return;
     }
   });

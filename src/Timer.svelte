@@ -14,7 +14,7 @@ import type { Writable } from 'svelte/store';
   function updateClock() {
     timer.update((t: Writable<Timer>)  => {
       if (t.timeLeft <= 0) {
-        return {...t, timeLeft: 0};
+        return {...t, timeLeft: -1};
       } else {
         const remainingMs = t.timeLeft - 1000;
   
