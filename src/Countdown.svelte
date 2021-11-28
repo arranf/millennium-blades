@@ -18,7 +18,7 @@
     
     if (t.timeLeft === 0 && !audioPlayed) {
       audioPlayed = true;
-      const audio = new Audio("Sirenenalarm.ogg");
+      const audio = new Audio("Sirenenalarm-short.ogg");
       audio.play();
 
       setTimeout(() => {
