@@ -1,20 +1,23 @@
 <script lang="ts">
-import type { Writable } from 'svelte/store';
-
+  import { get } from 'svelte/store';
 
   import {Timer, timer} from './store';
   export let minutes: number;
 
 
   function startTimer() {
-    timer.update((t: Writable<Timer>) => ({...t, timeLeft: minutes * 60 * 1000 + 1000, timer: setInterval(updateClock, 1000)})); // Extra 1000 seconds because we begin by decrementing
+    const currentTimer = get(timer);
+    if (currentTimer.timer) {
+      return;
+    }
+    timer.update((t: Timer) => ({...t, timeLeft: minutes * 60 * 1000 + 1000, timer: setInterval(updateClock, 1000)})); // Extra 1000 seconds because we begin by decrementing
     updateClock();
   }
 
   function updateClock() {
-    timer.update((t: Writable<Timer>)  => {
+    timer.update((t: Timer)  => {
       if (t.timeLeft <= 0) {
-        return {...t, timeLeft: -1};
+        return {...t, timeLeft: 0};
       } else {
         const remainingMs = t.timeLeft - 1000;
   
@@ -23,7 +26,7 @@ import type { Writable } from 'svelte/store';
           ...t,
           timeLeft: remainingMs,
           minutesLeft:  Math.floor((remainingMs / 60 / 1000) % 60),
-          secondsLeft: seconds.toString().length > 1 ? seconds.toString() : `0${seconds}`
+          secondsLeft: seconds.toString().length > 1 ? seconds.toString() : `0${seconds}`,
         }
       }
       

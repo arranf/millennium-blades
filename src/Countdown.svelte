@@ -4,6 +4,7 @@
   let minutesLeft: number;
   let secondsLeft: string;
   let localTimer;
+  let audioPlayed: boolean = false;
 
   function cancelTimer() {
     clearTimeout(localTimer);
@@ -15,7 +16,8 @@
     secondsLeft = t.secondsLeft;
     minutesLeft = t.minutesLeft;
     
-    if (t.timeLeft === 0) {
+    if (t.timeLeft === 0 && !audioPlayed) {
+      audioPlayed = true;
       const audio = new Audio("Sirenenalarm.ogg");
       audio.play();
 
