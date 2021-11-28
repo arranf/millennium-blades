@@ -2,17 +2,17 @@
   import { onMount } from "svelte";
 
   import { expansions } from "./expansions";
-  import type { ExpansionName, Expansion, SelectedSets } from "./models";
+  import type { ExpansionName, Expansion, SelectedSets, PresetOption } from "./models";
 
   import Header from "./Header.svelte";
   import ExpansionSelect from "./ExpansionSelect.svelte";
   import SetSelect from "./SetSelect.svelte";
   import Countdown from "./Countdown.svelte";
+  import PresetSelector from "./PresetSelector.svelte";
+
   import { SELECT_COUNTS, SETTINGS_NAME } from "./constants";
   import {settings} from "./store";
 
-  let loading = false;
-  let loadingCancel;
   
   let activeExpansions: ExpansionName[];
   let filteredExpansions: Expansion[];
@@ -41,30 +41,35 @@
     persist();
   }
 
+  function handlePresetSelect({detail}) {
+    const presetOption : PresetOption = detail.preset;
+    settings.update(settings => {
+      return {
+        ...settings,
+        selectedSets: presetOption.preset
+      }
+    });
+    
+    persist();
+  }
+
   function handleSetChange(_) {
     persist();
   }
 
   const persist = (): void => {
-    loading = true;
-    if (loadingCancel) {
-      clearTimeout(loadingCancel);
-    }
     localStorage.setItem(
       SETTINGS_NAME,
       JSON.stringify({activeExpansions, selectedSets})
     );
-    loadingCancel = setTimeout(() => (loading = false), 400);
   };
 
   onMount(async () => {
-    loading = true;
     settings.subscribe(settings => {    
       activeExpansions = settings.activeExpansions;
       selectedSets = settings.selectedSets;
       filteredExpansions = filter(activeExpansions);
     })
-    loadingCancel = setTimeout(() => (loading = false), 400);
 
   });
 </script>
@@ -85,14 +90,15 @@
         on:expansionchange={handleExpansionChange}
       />
 
-      <div class="mt-4 bg-white overflow-hidden shadow rounded-lg">
+      <div class="mt-4 bg-white shadow rounded-lg">
         <div class="px-4 py-5 sm:p-6">
           <div class="my-2 pb-5 border-b border-gray-200">
             <h3 class="text-lg leading-6 font-medium text-gray-900">
               Selected Sets
             </h3>
-          </div>
 
+          <PresetSelector on:presetselect={handlePresetSelect} />
+          </div>
           <div>
             <p>
               <strong>Expansion Sets</strong>: {selectedSets.expansionPacks
