@@ -41,14 +41,14 @@
       Select preset store build
     </label>
     <div class="relative">
-      <div class="inline-flex shadow-sm rounded-md divide-x divide-indigo-600">
-        <div class="relative z-0 inline-flex shadow-sm rounded-md divide-x divide-indigo-600">
-          <div class="relative inline-flex items-center bg-indigo-500 py-2 pl-3 pr-4 border border-transparent rounded-l-md shadow-sm text-white">
-            <p class="ml-2.5 text-sm font-medium">
+      <div class="inline-flex shadow-sm rounded-md divide-x divide-yellow-200">
+        <div class="relative z-0 inline-flex shadow-sm rounded-md divide-x divide-yellow-200">
+          <div class="relative inline-flex items-center bg-yellow-300 py-2 pl-3 pr-4 border border-transparent rounded-l-md shadow-sm text-yellow-800">
+            <p class="ml-2.5 text-sm">
               Select Preset Store Build
             </p>
           </div>
-          <button on:click={() => dropdownActive = !dropdownActive} type="button" class="relative inline-flex items-center bg-indigo-500 p-2 rounded-l-none rounded-r-md text-sm font-medium text-white hover:bg-indigo-600 focus:outline-none focus:z-10 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
+          <button on:click={() => dropdownActive = !dropdownActive} type="button" class="relative inline-flex items-center bg-yellow-300 p-2 rounded-l-none rounded-r-md text-sm font-medium text-yellow-800 hover:bg-yellow-400 focus:outline-none focus:z-10 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-yellow-200" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
             <!-- Heroicon name: solid/chevron-down -->
             <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
