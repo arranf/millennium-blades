@@ -405,41 +405,41 @@ const theTrueBeginning: PresetOption = {
   },
 };
 
-const cardClashOn: PresetOption = {
-  name: "Card Clash On!",
-  order: 10,
-  description:
-    "Even more player interaction than before! Clash with anyone and see who’s truly the master. This loadout is great if you wanted EVEN MORE conflict during tournaments!",
-  requiredExpansions: [ExpansionName.COLLUSION, ExpansionName.SET_ROTATION],
-  preset: {
-    bronzePromos: [BronzePromo.ELEMENTAL_BLADES],
-    silverPromos: [SilverPromo.FATE],
-    goldPromos: [GoldPromo.ELEMENTAL_DRAGON_LORDS],
-    expansionPacks: [
-      ExpansionPack.SAMURAI_MOWDOWN,
-      ExpansionPack.RUBBER_DUCKY_MAID_CRUSADERS_R,
-      ExpansionPack.SHOULDERS_OF_WAR,
-      ExpansionPack.SHILLS_AND_SHILLS_INC,
-      ExpansionPack.FAST,
-      ExpansionPack.QUANTUM_JUMP,
-    ],
-    premiumPacks: [
-      PremiumPack.CARDS_MAGICA,
-      PremiumPack.CLOCKWORK_EMPIRE,
-      PremiumPack.LEGEND_OF_TANANANAH,
-      PremiumPack.STAR_POWER,
-      PremiumPack.SHONEN_LEAP,
-    ],
-    masterPacks: [
-      MasterPack.DOUBLE_O_SIX_PLUS_ONE,
-      MasterPack.SYMPHONY_OF_DESTRUCTION,
-      MasterPack.OKIE_DOKIE_LITERATURE_CLUB,
-      MasterPack.THE_ULTIMATE_STEEL_COOK,
-    ],
-    bronzePromoPrize: [BronzePromo.LEGEND_OF_FINAL_BADASS],
-    silverPromoPrize: [SilverPromo.PRINCESS_BLADE],
-  },
-};
+// const cardClashOn: PresetOption = {
+//   name: "Card Clash On!",
+//   order: 10,
+//   description:
+//     "Even more player interaction than before! Clash with anyone and see who’s truly the master. This loadout is great if you wanted EVEN MORE conflict during tournaments!",
+//   requiredExpansions: [ExpansionName.COLLUSION, ExpansionName.SET_ROTATION],
+//   preset: {
+//     bronzePromos: [BronzePromo.ELEMENTAL_BLADES],
+//     silverPromos: [SilverPromo.F],
+//     goldPromos: [GoldPromo.ELEMENTAL_DRAGON_LORDS],
+//     expansionPacks: [
+//       ExpansionPack.SAMURAI_MOWDOWN,
+//       ExpansionPack.RUBBER_DUCKY_MAID_CRUSADERS_R,
+//       ExpansionPack.SHOULDERS_OF_WAR,
+//       ExpansionPack.SHILLS_AND_SHILLS_INC,
+//       ExpansionPack.FAST,
+//       ExpansionPack.QUANTUM_JUMP,
+//     ],
+//     premiumPacks: [
+//       PremiumPack.CARDS_MAGICA,
+//       PremiumPack.CLOCKWORK_EMPIRE,
+//       PremiumPack.LEGEND_OF_TANANANAH,
+//       PremiumPack.STAR_POWER,
+//       PremiumPack.SHONEN_LEAP,
+//     ],
+//     masterPacks: [
+//       MasterPack.DOUBLE_O_SIX_PLUS_ONE,
+//       MasterPack.SYMPHONY_OF_DESTRUCTION,
+//       MasterPack.OKIE_DOKIE_LITERATURE_CLUB,
+//       MasterPack.THE_ULTIMATE_STEEL_COOK,
+//     ],
+//     bronzePromoPrize: [BronzePromo.LEGEND_OF_FINAL_BADASS],
+//     silverPromoPrize: [SilverPromo.PRINCESS_BLADE],
+//   },
+// };
 
 
 export const presets: PresetOption[] = [
