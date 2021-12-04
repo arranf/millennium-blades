@@ -9,6 +9,7 @@
   function cancelTimer() {
     clearTimeout(localTimer);
     timer.update(t => ( {...t, timer: null}));
+    audioPlayed = false;
   }
 
   timer.subscribe(t => {
