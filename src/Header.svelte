@@ -11,6 +11,7 @@
         <div class="sm:block sm:ml-6">
           <div class="flex space-x-4">
             <a
+              target="_blank" rel="noopener noreferrer"
               href="https://static1.squarespace.com/static/5865e4d4f7e0ab0f0ee24ced/t/5f36e7352954a607ba5ebfd6/1597433664289/Collusion+Full+Rules.pdf"
               class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
               >Official Rules</a
