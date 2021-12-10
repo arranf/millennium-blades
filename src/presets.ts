@@ -448,6 +448,7 @@ export const presets: PresetOption[] = [
   strategicMode,
   theNameGame,
   flipFlops,
+  fast4You,
   payToWin,
   absolutelyMassiveUnits,
   theTrueBeginning,
