@@ -260,42 +260,41 @@ const flipFlops: PresetOption = {
   },
 };
 
-// DISABLED BECAUSE DOUBLE TROUBLE IS LISTED TWICE
-// const fast4You: PresetOption = {
-//   name: "2 Fast 4 You",
-//   order: 7,
-//   description:
-//     "Flipping cards has never been this much fun! Play your games fast and loose by flipping all sorts of cards with your effects. Whether it’s your own or an enemy’s, you’ll surely have a flippin great time!",
-//   requiredExpansions: [ExpansionName.COLLUSION, ExpansionName.SET_ROTATION],
-//   preset: {
-//     bronzePromos: [BronzePromo.FUSION_CHAOS],
-//     silverPromos: [SilverPromo.DOUBLE_TROUBLE],
-//     goldPromos: [GoldPromo.HOT_CHICKS],
-//     expansionPacks: [
-//       ExpansionPack.LIGHTNING_BUG,
-//       ExpansionPack.ANVILICIOUS_ARRANGEMENTS,
-//       ExpansionPack.SUPER_ZEROS_THEY_TRY,
-//       ExpansionPack.MB_CARDBARD_STREET,
-//       ExpansionPack.FAST,
-//       ExpansionPack.QUANTUM_JUMP,
-//     ],
-//     premiumPacks: [
-//       PremiumPack.LEGEND_OF_TANANANAH,
-//       PremiumPack.AD_2400,
-//       PremiumPack.FASTER,
-//       PremiumPack.SHONEN_LEAP,
-//       PremiumPack.GAME_OF_RINGS,
-//     ],
-//     masterPacks: [
-//       MasterPack.SYMPHONY_OF_DESTRUCTION,
-//       MasterPack.DOUBLE_O_SIX_PLUS_ONE,
-//       MasterPack.MONSTER_GIRLS,
-//       MasterPack.THE_ULTIMATE_STEEL_COOK,
-//     ],
-//     bronzePromoPrize: [BronzePromo.WERE_BACK_A_STARTER_DECKS_STORY],
-//     silverPromoPrize: [SilverPromo.DOUBLE_TROUBLE],
-//   },
-// };
+const fast4You: PresetOption = {
+  name: "2 Fast 4 You",
+  order: 7,
+  description:
+    "Flipping cards has never been this much fun! Play your games fast and loose by flipping all sorts of cards with your effects. Whether it’s your own or an enemy’s, you’ll surely have a flippin great time!",
+  requiredExpansions: [ExpansionName.COLLUSION, ExpansionName.SET_ROTATION],
+  preset: {
+    bronzePromos: [BronzePromo.FUSION_CHAOS],
+    silverPromos: [SilverPromo.DOUBLE_TROUBLE],
+    goldPromos: [GoldPromo.HOT_CHICKS],
+    expansionPacks: [
+      ExpansionPack.LIGHTNING_BUG,
+      ExpansionPack.ANVILICIOUS_ARRANGEMENTS,
+      ExpansionPack.SUPER_ZEROS_THEY_TRY,
+      ExpansionPack.MB_CARDBARD_STREET,
+      ExpansionPack.FAST,
+      ExpansionPack.QUANTUM_JUMP,
+    ],
+    premiumPacks: [
+      PremiumPack.LEGEND_OF_TANANANAH,
+      PremiumPack.AD_2400,
+      PremiumPack.FASTER,
+      PremiumPack.SHONEN_LEAP,
+      PremiumPack.GAME_OF_RINGS,
+    ],
+    masterPacks: [
+      MasterPack.SYMPHONY_OF_DESTRUCTION,
+      MasterPack.DOUBLE_O_SIX_PLUS_ONE,
+      MasterPack.MONSTER_GIRLS,
+      MasterPack.THE_ULTIMATE_STEEL_COOK,
+    ],
+    bronzePromoPrize: [BronzePromo.WERE_BACK_A_STARTER_DECKS_STORY],
+    silverPromoPrize: [SilverPromo.BACK_TO_THE_PAST],
+  },
+};
 
 const payToWin: PresetOption = {
   name: "Pay To Win!",
@@ -405,42 +404,41 @@ const theTrueBeginning: PresetOption = {
   },
 };
 
-// const cardClashOn: PresetOption = {
-//   name: "Card Clash On!",
-//   order: 10,
-//   description:
-//     "Even more player interaction than before! Clash with anyone and see who’s truly the master. This loadout is great if you wanted EVEN MORE conflict during tournaments!",
-//   requiredExpansions: [ExpansionName.COLLUSION, ExpansionName.SET_ROTATION],
-//   preset: {
-//     bronzePromos: [BronzePromo.ELEMENTAL_BLADES],
-//     silverPromos: [SilverPromo.F],
-//     goldPromos: [GoldPromo.ELEMENTAL_DRAGON_LORDS],
-//     expansionPacks: [
-//       ExpansionPack.SAMURAI_MOWDOWN,
-//       ExpansionPack.RUBBER_DUCKY_MAID_CRUSADERS_R,
-//       ExpansionPack.SHOULDERS_OF_WAR,
-//       ExpansionPack.SHILLS_AND_SHILLS_INC,
-//       ExpansionPack.FAST,
-//       ExpansionPack.QUANTUM_JUMP,
-//     ],
-//     premiumPacks: [
-//       PremiumPack.CARDS_MAGICA,
-//       PremiumPack.CLOCKWORK_EMPIRE,
-//       PremiumPack.LEGEND_OF_TANANANAH,
-//       PremiumPack.STAR_POWER,
-//       PremiumPack.SHONEN_LEAP,
-//     ],
-//     masterPacks: [
-//       MasterPack.DOUBLE_O_SIX_PLUS_ONE,
-//       MasterPack.SYMPHONY_OF_DESTRUCTION,
-//       MasterPack.OKIE_DOKIE_LITERATURE_CLUB,
-//       MasterPack.THE_ULTIMATE_STEEL_COOK,
-//     ],
-//     bronzePromoPrize: [BronzePromo.LEGEND_OF_FINAL_BADASS],
-//     silverPromoPrize: [SilverPromo.PRINCESS_BLADE],
-//   },
-// };
-
+const cardClashOn: PresetOption = {
+  name: "Card Clash On!",
+  order: 10,
+  description:
+    "Even more player interaction than before! Clash with anyone and see who’s truly the master. This loadout is great if you wanted EVEN MORE conflict during tournaments!",
+  requiredExpansions: [ExpansionName.COLLUSION, ExpansionName.SET_ROTATION],
+  preset: {
+    bronzePromos: [BronzePromo.ELEMENTAL_BLADES],
+    silverPromos: [SilverPromo.DEVASTION_OF_INDINES],
+    goldPromos: [GoldPromo.EXALTIUS_SHOPPING_LIST],
+    expansionPacks: [
+      ExpansionPack.SAMURAI_MOWDOWN,
+      ExpansionPack.RUBBER_DUCKY_MAID_CRUSADERS_R,
+      ExpansionPack.SHOULDERS_OF_WAR,
+      ExpansionPack.SHILLS_AND_SHILLS_INC,
+      ExpansionPack.FAST,
+      ExpansionPack.QUANTUM_JUMP,
+    ],
+    premiumPacks: [
+      PremiumPack.CARDS_MAGICA,
+      PremiumPack.CLOCKWORK_EMPIRE,
+      PremiumPack.LEGEND_OF_TANANANAH,
+      PremiumPack.STAR_POWER,
+      PremiumPack.SHONEN_LEAP,
+    ],
+    masterPacks: [
+      MasterPack.DOUBLE_O_SIX_PLUS_ONE,
+      MasterPack.SYMPHONY_OF_DESTRUCTION,
+      MasterPack.OKIE_DOKIE_LITERATURE_CLUB,
+      MasterPack.THE_ULTIMATE_STEEL_COOK,
+    ],
+    bronzePromoPrize: [BronzePromo.LEGEND_OF_FINAL_BADASS],
+    silverPromoPrize: [SilverPromo.PRINCESS_BLADE],
+  },
+};
 
 export const presets: PresetOption[] = [
   newBeginnings,
@@ -452,5 +450,6 @@ export const presets: PresetOption[] = [
   flipFlops,
   payToWin,
   absolutelyMassiveUnits,
-  theTrueBeginning
+  theTrueBeginning,
+  cardClashOn,
 ];
