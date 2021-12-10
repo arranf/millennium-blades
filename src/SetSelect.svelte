@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
-
   import {settings} from "./store";
   import { getRandom } from "./utils";
 
@@ -16,8 +14,6 @@
 
   let selectedPacks: string[];
   let previouslySelectedPacks: string[];
-
-  const dispatch = createEventDispatcher();
 
   function updateSelectedPacks(set: string) {
     settings.update(settings => {
@@ -36,7 +32,6 @@
       };
       return update; 
     })
-    dispatch("setchange", { set });
   }
 
   function randomise() {
@@ -47,7 +42,6 @@
           [typeName]: getRandom(filteredPacks, limit, previouslySelectedPacks)
         }
       }));
-      dispatch("setchange");
   }
 
   settings.subscribe(settings => {

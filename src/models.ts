@@ -15,7 +15,7 @@ export const enum ExpansionName {
   EXTRA_SETS = "Extra Sets: Mini Expansion #11",
   FINALER_BOSSES = "Finaler Bosses: Mini Expansion #12",
   BOARD_GAME_GEEK = "BoardGameGeek Mini Expansion",
-  DICE_TOWER = "Dice Tower Mini Expansion", // Currently unused - it's just a core set card
+  // DICE_TOWER = "Dice Tower Mini Expansion", // Currently unused - it's just a core set card
 }
 
 export interface Expansion {
@@ -40,6 +40,15 @@ export interface SelectedSets {
   masterPacks: string[];
   bronzePromoPrize: string[];
   silverPromoPrize: string[];
+}
+
+export interface Sets {
+  bronzePromos: string[];
+  silverPromos: string[];
+  goldPromos: string[];
+  expansionPacks: string[];
+  premiumPacks: string[];
+  masterPacks: string[];
 }
 
 export interface Settings {

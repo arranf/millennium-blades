@@ -1,7 +1,7 @@
 export function getRandom<T>(
   array: Array<T>,
   n: number,
-  excludedInArray: Array<T>
+  excludedInArray: Array<T> = new Array<T>()
 ): Array<T> {
   let newArray = array.filter((a) => !excludedInArray.includes(a));
   let result = new Array(n);
