@@ -9,4 +9,5 @@ export const SELECT_COUNTS = {
   masterPacks: 4,
   bronzePromoPrize: 1,
   silverPromoPrize: 1,
+  metagame: 2,
 };

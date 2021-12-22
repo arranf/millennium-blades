@@ -201,3 +201,10 @@ export const enum MasterPack {
   REALM_OF_SHADOWS = "Realm of Shadows",
   BROKINS_BEST = "Bro'kin's Best",
 }
+
+export const enum MetagameSet {
+  TYPE = "Type",
+  ELEMENT = "Element",
+  STAR = "Star",
+  RARITY = "Rarity",
+}

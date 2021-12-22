@@ -2,7 +2,8 @@
   import { onMount } from "svelte";
 
   import { expansions } from "./expansions";
-  import type { ExpansionName, Expansion, Sets, SelectedSets } from "./models";
+  import type { Expansion, Sets, SelectedSets } from "./models";
+  import {ExpansionName} from "./models";
 
   import Header from "./Header.svelte";
   import ExpansionSelect from "./ExpansionSelect.svelte";
@@ -32,6 +33,7 @@
       expansionPacks: filteredExpansions.flatMap((s) => s.expansionPacks).sort(),
       premiumPacks: filteredExpansions.flatMap((s) => s.premiumPacks).sort(),
       masterPacks: filteredExpansions.flatMap((s) => s.masterPacks).sort(),
+      metagameSets: filteredExpansions.flatMap((s) => s.metagameSets).sort(),
     }
   }
 
@@ -40,6 +42,7 @@
       const indexOf = settings.activeExpansions.indexOf(detail.expansion);
       const activeExpansions = settings.activeExpansions;
       if (indexOf >= 0) {
+        // TODO: Remove _all_ sets selected from that expansion
         activeExpansions.splice(indexOf, 1);
       } else {
         activeExpansions.push(detail.expansion);
@@ -91,7 +94,15 @@
      <SetView selectedSets={selectedSets} />
 
      <Controls activeExpansions={activeExpansions} possibleSets={possibleSets} />
-
+      {#if activeExpansions.includes(ExpansionName.COLLUSION)}
+        <SetSelect 
+          filteredPacks={possibleSets.metagameSets} 
+          title="Metagame Update" 
+          color="blue" 
+          typeName="metagameSets" 
+          limit={SELECT_COUNTS.metagame} 
+        />
+      {/if}
       <SetSelect
         filteredPacks={possibleSets.expansionPacks}
         title="Expansion Sets"

@@ -29,6 +29,7 @@ export interface Expansion {
   expansionPacks: string[];
   premiumPacks: string[];
   masterPacks: string[];
+  metagameSets: string[];
 }
 
 export interface SelectedSets {
@@ -40,6 +41,7 @@ export interface SelectedSets {
   masterPacks: string[];
   bronzePromoPrize: string[];
   silverPromoPrize: string[];
+  metagameSets: string[];
 }
 
 export interface Sets {
@@ -49,6 +51,7 @@ export interface Sets {
   expansionPacks: string[];
   premiumPacks: string[];
   masterPacks: string[];
+  metagameSets: string[];
 }
 
 export interface Settings {

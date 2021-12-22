@@ -9,6 +9,7 @@ import {
   Characters,
   PremiumPack,
   MasterPack,
+  MetagameSet,
 } from "./cards";
 
 export const expansions: Expansion[] = [
@@ -81,6 +82,7 @@ export const expansions: Expansion[] = [
       MasterPack.SYMPHONY_OF_DESTRUCTION,
       MasterPack.VEX_CARDS_OF_HATE,
     ],
+    metagameSets: [MetagameSet.ELEMENT, MetagameSet.TYPE],
   },
   {
     name: ExpansionName.SET_ROTATION,
@@ -135,6 +137,7 @@ export const expansions: Expansion[] = [
       MasterPack.THE_ULTIMATE_STEEL_COOK,
       MasterPack.ULTIMATE_KAIJU_THROWDOWN,
     ],
+    metagameSets: [],
   },
   {
     name: ExpansionName.CROSSOVER,
@@ -156,6 +159,7 @@ export const expansions: Expansion[] = [
     expansionPacks: [],
     premiumPacks: [],
     masterPacks: [],
+    metagameSets: [],
   },
   {
     name: ExpansionName.SPONSORS,
@@ -172,6 +176,7 @@ export const expansions: Expansion[] = [
     expansionPacks: [],
     premiumPacks: [],
     masterPacks: [],
+    metagameSets: [],
   },
   {
     name: ExpansionName.FUSION_CHAOS,
@@ -184,6 +189,7 @@ export const expansions: Expansion[] = [
     expansionPacks: [],
     premiumPacks: [],
     masterPacks: [],
+    metagameSets: [],
   },
   {
     name: ExpansionName.FINAL_BOSSES,
@@ -201,6 +207,7 @@ export const expansions: Expansion[] = [
       MasterPack.TCG_LLUMINATI,
       MasterPack.THEY_CAME_FROM_SPACE,
     ],
+    metagameSets: [],
   },
   {
     name: ExpansionName.FUTURES,
@@ -225,6 +232,7 @@ export const expansions: Expansion[] = [
     expansionPacks: [],
     premiumPacks: [],
     masterPacks: [],
+    metagameSets: [],
   },
   {
     name: ExpansionName.PROFESSIONALS,
@@ -237,6 +245,7 @@ export const expansions: Expansion[] = [
     expansionPacks: [ExpansionPack.MYSTIC_THE_RECKONING],
     premiumPacks: [],
     masterPacks: [MasterPack.THE_SPORTS_SET],
+    metagameSets: [],
   },
   {
     name: ExpansionName.COLLUSION,
@@ -289,6 +298,7 @@ export const expansions: Expansion[] = [
       MasterPack.OKIE_DOKIE_LITERATURE_CLUB,
       MasterPack.TOY_TALES,
     ],
+    metagameSets: [MetagameSet.RARITY, MetagameSet.STAR],
   },
   {
     name: ExpansionName.CROSSOVER_2,
@@ -304,6 +314,7 @@ export const expansions: Expansion[] = [
     expansionPacks: [],
     premiumPacks: [],
     masterPacks: [],
+    metagameSets: [],
   },
   {
     name: ExpansionName.CROSSOVER_3,
@@ -316,6 +327,7 @@ export const expansions: Expansion[] = [
     expansionPacks: [],
     premiumPacks: [],
     masterPacks: [],
+    metagameSets: [],
   },
   // {
   //   name: ExpansionName.CO_OP_BOSSES,
@@ -328,6 +340,7 @@ export const expansions: Expansion[] = [
   //   expansionPacks: [],
   //   premiumPacks: [],
   //   masterPacks: [],
+  // metagameSets: [],
   // },
   {
     name: ExpansionName.EXTRA_CHARACTERS,
@@ -344,6 +357,7 @@ export const expansions: Expansion[] = [
     expansionPacks: [],
     premiumPacks: [],
     masterPacks: [],
+    metagameSets: [],
   },
   {
     name: ExpansionName.EXTRA_SETS,
@@ -359,6 +373,7 @@ export const expansions: Expansion[] = [
     ],
     premiumPacks: [PremiumPack.THE_ACCESSORY_STRIKES_BACK],
     masterPacks: [MasterPack.FAST_3],
+    metagameSets: [],
   },
   {
     name: ExpansionName.FINALER_BOSSES,
@@ -371,6 +386,7 @@ export const expansions: Expansion[] = [
     expansionPacks: [ExpansionPack.FUTURE_PROOF],
     premiumPacks: [PremiumPack.WORLD_WARRIORS],
     masterPacks: [MasterPack.REALM_OF_SHADOWS],
+    metagameSets: [],
   },
   {
     name: ExpansionName.BOARD_GAME_GEEK,
@@ -383,5 +399,6 @@ export const expansions: Expansion[] = [
     expansionPacks: [],
     premiumPacks: [PremiumPack.KARTES_DES_JARES],
     masterPacks: [MasterPack.BROKINS_BEST],
+    metagameSets: [],
   },
 ].sort((a, b) => a.order - b.order);

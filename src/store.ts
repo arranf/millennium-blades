@@ -1,6 +1,7 @@
 import { Writable, writable } from "svelte/store";
 import { ExpansionName, Settings } from "./models";
 import { SETTINGS_NAME } from "./constants";
+import { MetagameSet } from "./cards";
 
 export interface Timer {
   secondsLeft: string;
@@ -31,6 +32,7 @@ function getSettings(): Settings {
       masterPacks: [],
       bronzePromoPrize: [],
       silverPromoPrize: [],
+      metagameSets: [MetagameSet.ELEMENT, MetagameSet.TYPE],
       ...settings?.selectedSets,
     },
   };
