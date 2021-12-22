@@ -41,6 +41,7 @@ const newBeginnings: PresetOption = {
     ],
     bronzePromoPrize: [BronzePromo.ELEMENTAL_BLADES],
     silverPromoPrize: [SilverPromo.SEALED_VAULTS],
+    metagameSets: [],
   },
 };
 
@@ -77,6 +78,7 @@ const fightMe: PresetOption = {
     ],
     bronzePromoPrize: [BronzePromo.LEGEND_OF_FINAL_BADASS],
     silverPromoPrize: [SilverPromo.SEALED_VAULTS],
+    metagameSets: [],
   },
 };
 
@@ -113,6 +115,7 @@ const middleHandManagement: PresetOption = {
     ],
     bronzePromoPrize: [BronzePromo.LEGEND_OF_FINAL_BADASS],
     silverPromoPrize: [SilverPromo.SEALED_VAULTS],
+    metagameSets: [],
   },
 };
 
@@ -149,6 +152,7 @@ const comboCity: PresetOption = {
     ],
     bronzePromoPrize: [BronzePromo.FUSION_CHAOS],
     silverPromoPrize: [SilverPromo.DOUBLE_TROUBLE],
+    metagameSets: [],
   },
 };
 
@@ -185,6 +189,7 @@ const strategicMode: PresetOption = {
     ],
     bronzePromoPrize: [BronzePromo.WERE_BACK_A_STARTER_DECKS_STORY],
     silverPromoPrize: [SilverPromo.DOUBLE_TROUBLE],
+    metagameSets: [],
   },
 };
 
@@ -221,6 +226,7 @@ const theNameGame: PresetOption = {
     ],
     bronzePromoPrize: [BronzePromo.FUSION_CHAOS],
     silverPromoPrize: [SilverPromo.BACK_TO_THE_PAST],
+    metagameSets: [],
   },
 };
 
@@ -257,6 +263,7 @@ const flipFlops: PresetOption = {
     ],
     bronzePromoPrize: [BronzePromo.ELEMENTAL_BLADES],
     silverPromoPrize: [SilverPromo.BACK_TO_THE_PAST],
+    metagameSets: [],
   },
 };
 
@@ -293,6 +300,7 @@ const fast4You: PresetOption = {
     ],
     bronzePromoPrize: [BronzePromo.WERE_BACK_A_STARTER_DECKS_STORY],
     silverPromoPrize: [SilverPromo.BACK_TO_THE_PAST],
+    metagameSets: [],
   },
 };
 
@@ -329,6 +337,7 @@ const payToWin: PresetOption = {
     ],
     bronzePromoPrize: [BronzePromo.WERE_BACK_A_STARTER_DECKS_STORY],
     silverPromoPrize: [SilverPromo.DOUBLE_TROUBLE],
+    metagameSets: [],
   },
 };
 
@@ -365,6 +374,7 @@ const absolutelyMassiveUnits: PresetOption = {
     ],
     bronzePromoPrize: [BronzePromo.FUSION_CHAOS],
     silverPromoPrize: [SilverPromo.BACK_TO_THE_PAST],
+    metagameSets: [],
   },
 };
 
@@ -401,6 +411,7 @@ const theTrueBeginning: PresetOption = {
     ],
     bronzePromoPrize: [BronzePromo.WERE_BACK_A_STARTER_DECKS_STORY],
     silverPromoPrize: [SilverPromo.DOUBLE_TROUBLE],
+    metagameSets: [],
   },
 };
 
@@ -437,6 +448,7 @@ const cardClashOn: PresetOption = {
     ],
     bronzePromoPrize: [BronzePromo.LEGEND_OF_FINAL_BADASS],
     silverPromoPrize: [SilverPromo.PRINCESS_BLADE],
+    metagameSets: [],
   },
 };
 
