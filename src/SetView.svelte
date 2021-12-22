@@ -69,6 +69,11 @@
                   ? selectedSets.bronzePromoPrize.concat(selectedSets.silverPromoPrize).join(", ")
                   : "None"}
               </p>
+              <p>
+                <strong>Metagame</strong>: {selectedSets.metagameSets.length > 0
+                  ? selectedSets.metagameSets.sort().join(", ")
+                  : "None"}
+              </p>
             </div>
           {/if}
         </div>
