@@ -33,7 +33,8 @@ import { SELECT_COUNTS } from "./constants";
       premiumPacks: getRandom(possibleSets.premiumPacks, SELECT_COUNTS.premiumPacks),
       masterPacks: getRandom(possibleSets.masterPacks, SELECT_COUNTS.masterPacks),
       bronzePromoPrize,
-      silverPromoPrize
+      silverPromoPrize,
+      metagameSets: getRandom(possibleSets.metagameSets, SELECT_COUNTS.metagame)
     };
 
     settings.update(settings => ({
