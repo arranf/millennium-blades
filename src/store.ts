@@ -22,6 +22,9 @@ export const settings: Writable<Settings> = writable(getSettings());
 function getSettings(): Settings {
   const settings = JSON.parse(localStorage.getItem(SETTINGS_NAME)) ?? {};
   return {
+    collapsed: {
+      expansionSelect: settings?.collapsed?.expansionSelect ?? false
+    },
     activeExpansions: settings?.activeExpansions ?? [ExpansionName.BASE_GAME],
     selectedSets: {
       bronzePromos: [],
@@ -37,3 +40,14 @@ function getSettings(): Settings {
     },
   };
 }
+
+settings.subscribe(settings => {
+  persist(settings)
+});
+
+export function persist(settings: Settings): void {
+  localStorage.setItem(
+    SETTINGS_NAME,
+    JSON.stringify({ ...settings })
+  );
+};

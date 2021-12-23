@@ -57,6 +57,9 @@ export interface Sets {
 export interface Settings {
   selectedSets: SelectedSets;
   activeExpansions: ExpansionName[];
+  collapsed: {
+    expansionSelect: boolean;
+  };
 }
 
 export interface PresetOption {

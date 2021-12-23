@@ -12,7 +12,7 @@
   import SetView from "./SetView.svelte";
   import Controls from "./Controls.svelte";
 
-  import { SELECT_COUNTS, SETTINGS_NAME } from "./constants";
+  import { SELECT_COUNTS } from "./constants";
   import {settings} from "./store";
   
   let activeExpansions: ExpansionName[];
@@ -55,21 +55,12 @@
     possibleSets = getPossibleSets();
   }
 
-  // To Do: Move to store?
-  const persist = (): void => {
-    localStorage.setItem(
-      SETTINGS_NAME,
-      JSON.stringify({activeExpansions, selectedSets})
-    );
-  };
-
   onMount(async () => {
     settings.subscribe(settings => {    
       activeExpansions = settings.activeExpansions;
       selectedSets = settings.selectedSets;
       filteredExpansions = filter(activeExpansions);
       possibleSets = getPossibleSets();
-      persist();
     })
 
   });

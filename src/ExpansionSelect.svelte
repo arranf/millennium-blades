@@ -14,8 +14,21 @@
     dispatch("expansionchange", { expansion });
   }
 
+  function toggleCollapse() {
+    settings.update((settings) => {
+      return {
+        ...settings,
+        collapsed: {
+          ...settings.collapsed,
+          expansionSelect: !settings.collapsed.expansionSelect
+        }
+      }
+    });
+  }
+
   settings.subscribe(settings => {
     activeExpansions = settings.activeExpansions;
+    collapsed = settings.collapsed.expansionSelect;
   });
 
 </script>
@@ -24,7 +37,7 @@
   <div class="px-2 py-3 sm:p-6">
     <div class="my-1 pb-2 border-b border-gray-200">
       <h3 class="text-md leading-3 font-medium text-gray-900">
-        <button on:click={() => collapsed = !collapsed}>
+        <button on:click={() => toggleCollapse()}>
           {#if collapsed}
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd" />
