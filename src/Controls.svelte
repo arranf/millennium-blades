@@ -16,7 +16,7 @@ import { SELECT_COUNTS } from "./constants";
       settings.update(settings => {
       return {
           ...settings,
-          selectedSets: presetOption.preset
+          selectedSets: {...presetOption.preset, metagameSets: settings.selectedSets.metagameSets}
       }
       });
   }
