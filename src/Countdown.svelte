@@ -24,7 +24,7 @@
 
       setTimeout(() => {
         cancelTimer();
-      }, 5000);
+      }, 3000);
       return;
     }
   });
