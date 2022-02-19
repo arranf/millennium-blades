@@ -1,14 +1,13 @@
 <script lang="ts">
-import { SELECT_COUNTS } from "./constants";
-
-  import type { PresetOption, ExpansionName, Sets, SelectedSets } from "./models";
-
+  
+  import type { PresetOption, Sets, SelectedSets } from "../types";
+  
   import PresetSelector from "./PresetSelector.svelte";
+  
+  import { SELECT_COUNTS } from "../constants";
+  import {settings} from "../store";
+  import { getRandom } from "../utils";
 
-  import {settings} from "./store";
-  import { getRandom } from "./utils";
-
-  export let activeExpansions: ExpansionName[];
   export let possibleSets: Sets;
 
   function handlePresetSelect({detail}) {

@@ -1,4 +1,5 @@
-import { ExpansionName, Expansion } from "./models";
+import type { Expansion } from "../types";
+import { ExpansionName } from "../types/ExpansionName";
 
 import {
   StarterDeck,

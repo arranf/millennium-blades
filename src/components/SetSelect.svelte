@@ -1,6 +1,6 @@
 <script lang="ts">
-  import {settings} from "./store";
-  import { getRandom } from "./utils";
+  import {settings} from "../store";
+  import { getRandom } from "../utils";
 
   export let filteredPacks: string[];
   export let previouslySelectedTypeName: string = undefined;
@@ -80,7 +80,6 @@
         >
       </div>
       <ul
-        role="list"
         class="mt-3 grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4"
       >
         {#each filteredPacks as set}

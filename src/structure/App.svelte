@@ -1,44 +1,48 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  import { expansions } from "./expansions";
-  import type { Expansion, Sets, SelectedSets } from "./models";
-  import {ExpansionName} from "./models";
-
-  import Header from "./Header.svelte";
-  import ExpansionSelect from "./ExpansionSelect.svelte";
-  import SetSelect from "./SetSelect.svelte";
-  import Countdown from "./Countdown.svelte";
-  import SetView from "./SetView.svelte";
-  import Controls from "./Controls.svelte";
-
-  import { SELECT_COUNTS } from "./constants";
-  import {settings} from "./store";
+  import { expansions, ExpansionName } from "../data";
+  import type { Expansion, Sets, SelectedSets } from "../types";
   
+  import Header from "../structure/Header.svelte";
+  import Countdown from "../structure/Countdown.svelte";
+
+  import ExpansionSelect from "../components/ExpansionSelect.svelte";
+  import SetSelect from "../components/SetSelect.svelte";
+  import SetView from "../components/SetView.svelte";
+  import Controls from "../components/Controls.svelte";
+  
+
+  import { SELECT_COUNTS } from "../constants";
+  import { settings } from "../store";
+
   let activeExpansions: ExpansionName[];
   let filteredExpansions: Expansion[];
   let selectedSets: SelectedSets;
   let possibleSets: Sets;
 
   function filter(activeExpansions: ExpansionName[]) {
-    return expansions.filter((e: Expansion) => 
-      activeExpansions.length === 0 ? true : activeExpansions.includes(e.name));
+    return expansions.filter((e: Expansion) =>
+      activeExpansions.length === 0 ? true : activeExpansions.includes(e.name)
+    );
   }
 
-  function getPossibleSets() : Sets {
+  function getPossibleSets(): Sets {
     return {
       bronzePromos: filteredExpansions.flatMap((s) => s.bronzePromos).sort(),
       silverPromos: filteredExpansions.flatMap((s) => s.silverPromos).sort(),
       goldPromos: filteredExpansions.flatMap((s) => s.goldPromos).sort(),
-      expansionPacks: filteredExpansions.flatMap((s) => s.expansionPacks).sort(),
+      expansionPacks: filteredExpansions
+        .flatMap((s) => s.expansionPacks)
+        .sort(),
       premiumPacks: filteredExpansions.flatMap((s) => s.premiumPacks).sort(),
       masterPacks: filteredExpansions.flatMap((s) => s.masterPacks).sort(),
       metagameSets: filteredExpansions.flatMap((s) => s.metagameSets).sort(),
-    }
+    };
   }
 
   function handleExpansionChange({ detail }) {
-    settings.update(settings => {
+    settings.update((settings) => {
       const indexOf = settings.activeExpansions.indexOf(detail.expansion);
       const activeExpansions = settings.activeExpansions;
       if (indexOf >= 0) {
@@ -49,20 +53,19 @@
       }
       return {
         ...settings,
-        activeExpansions
-      }
+        activeExpansions,
+      };
     });
     possibleSets = getPossibleSets();
   }
 
   onMount(async () => {
-    settings.subscribe(settings => {    
+    settings.subscribe((settings) => {
       activeExpansions = settings.activeExpansions;
       selectedSets = settings.selectedSets;
       filteredExpansions = filter(activeExpansions);
       possibleSets = getPossibleSets();
-    })
-
+    });
   });
 </script>
 
@@ -78,20 +81,18 @@
       </div>
     </header>
     <div class="mx-4 py-6 sm:px-6 lg:px-8">
-      <ExpansionSelect
-        on:expansionchange={handleExpansionChange}
-      />
+      <ExpansionSelect on:expansionchange={handleExpansionChange} />
 
-     <SetView selectedSets={selectedSets} />
+      <SetView {selectedSets} />
 
-     <Controls activeExpansions={activeExpansions} possibleSets={possibleSets} />
+      <Controls {possibleSets} />
       {#if activeExpansions.includes(ExpansionName.COLLUSION)}
-        <SetSelect 
-          filteredPacks={possibleSets.metagameSets} 
-          title="Metagame Update" 
-          color="blue" 
-          typeName="metagameSets" 
-          limit={SELECT_COUNTS.metagame} 
+        <SetSelect
+          filteredPacks={possibleSets.metagameSets}
+          title="Metagame Update"
+          color="blue"
+          typeName="metagameSets"
+          limit={SELECT_COUNTS.metagame}
         />
       {/if}
       <SetSelect
@@ -172,7 +173,6 @@
         typeName="silverPromoPrize"
         limit={SELECT_COUNTS.silverPromoPrize}
       />
-
     </div>
   {/if}
 </main>

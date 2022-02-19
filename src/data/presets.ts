@@ -6,7 +6,8 @@ import {
   PremiumPack,
   SilverPromo,
 } from "./cards";
-import { ExpansionName, PresetOption } from "./models";
+import type { PresetOption } from "../types";
+import { ExpansionName } from "../types/ExpansionName";
 
 const newBeginnings: PresetOption = {
   name: "New Beginnings",

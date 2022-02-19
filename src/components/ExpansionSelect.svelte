@@ -2,8 +2,8 @@
   import { createEventDispatcher } from "svelte";
 	import { scale } from 'svelte/transition';
 
-  import { ExpansionName } from "./models";
-  import {settings} from "./store";
+  import { ExpansionName } from "../types";
+  import {settings} from "../store";
 
   let activeExpansions: ExpansionName[];
   let collapsed: boolean = false;

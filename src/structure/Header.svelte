@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Timer from "./Timer.svelte";
+  import Timer from "../components/TimerButton.svelte";
 </script>
 
 <nav class="bg-gray-800">
@@ -19,7 +19,7 @@
 
             <Timer minutes={7} />
 
-            <Timer minutes={6} />
+            <Timer minutes={0.06} />
           </div>
         </div>
       </div>

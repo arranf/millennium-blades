@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import type { PresetOption } from "./models";
-  import {presets} from "./presets";
+  import type { PresetOption } from "../types";
+  import {presets} from "../data/presets";
 
   let dropdownActive: boolean = false;
   const dispatch = createEventDispatcher();
