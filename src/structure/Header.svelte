@@ -19,7 +19,7 @@
 
             <Timer minutes={7} />
 
-            <Timer minutes={0.06} />
+            <Timer minutes={6} />
           </div>
         </div>
       </div>
