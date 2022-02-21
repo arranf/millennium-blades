@@ -8,3 +8,5 @@ export interface Sets {
   masterPacks: string[];
   metagameSets: string[];
 }
+
+export type SetName = keyof Sets;

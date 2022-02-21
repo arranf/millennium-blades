@@ -10,8 +10,8 @@
 
   export let possibleSets: Sets;
 
-  function handlePresetSelect({detail}) {
-      const presetOption : PresetOption = detail.preset;
+  function handlePresetSelect({detail}: {detail: {preset: PresetOption}}) {
+      const presetOption = detail.preset;
       settings.update(settings => {
       return {
           ...settings,

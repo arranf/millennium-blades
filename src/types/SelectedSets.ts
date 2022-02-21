@@ -1,12 +1,8 @@
+import type { Sets } from "./Sets";
 
-export interface SelectedSets {
-  bronzePromos: string[];
-  silverPromos: string[];
-  goldPromos: string[];
-  expansionPacks: string[];
-  premiumPacks: string[];
-  masterPacks: string[];
+export interface SelectedSets extends Sets {
   bronzePromoPrize: string[];
   silverPromoPrize: string[];
-  metagameSets: string[];
 }
+
+export type SelectedSetName = keyof SelectedSets;

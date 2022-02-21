@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { scale } from 'svelte/transition';
 
-  import type { SelectedSets } from "./models";
+  import type { SelectedSets } from "../types";
 
   export let selectedSets: SelectedSets;
 

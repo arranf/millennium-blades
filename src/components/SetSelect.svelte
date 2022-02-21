@@ -1,19 +1,20 @@
 <script lang="ts">
   import {settings} from "../store";
+  import type { SelectedSetName } from "../types";
   import { getRandom } from "../utils";
 
   export let filteredPacks: string[];
-  export let previouslySelectedTypeName: string = undefined;
+  export let previouslySelectedTypeName: SelectedSetName | undefined = undefined;
   export let limit: number;
-  export let typeName: string;
+  export let typeName: SelectedSetName;
 
-  export let title;
+  export let title: any;
   export let color = "pink";
   export let colorIntensity = "600";
   export let leadingColor = "white";
 
   let selectedPacks: string[];
-  let previouslySelectedPacks: string[];
+  let previouslySelectedPacks: string[] = [];
 
   function updateSelectedPacks(set: string) {
     settings.update(settings => {
@@ -46,7 +47,7 @@
 
   settings.subscribe(settings => {
     selectedPacks = settings.selectedSets[typeName];
-    previouslySelectedPacks = settings.selectedSets[previouslySelectedTypeName] || [];
+    previouslySelectedPacks = previouslySelectedTypeName ? settings.selectedSets[previouslySelectedTypeName] : [];
   });
 </script>
 

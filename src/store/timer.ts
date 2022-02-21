@@ -1,10 +1,11 @@
 import { get, writable } from "svelte/store";
 import type { Writable } from "svelte/store";
-import { ExpansionName } from "./types/ExpansionName";
-import type { Settings } from "./types/Settings";
-import { SETTINGS_NAME } from "./constants";
-import { MetagameSet } from "./data/cards";
-import type { Route } from "./types/Route";
+
+export enum TimerStatus {
+  Cancelled = "Cancelled",
+  Started = "Started",
+  Paused = "Paused",
+}
 
 export interface Timer {
   secondsLeft: string;
@@ -15,11 +16,31 @@ export interface Timer {
   minutesDuration?: number;
 }
 
-export enum TimerStatus {
-  Cancelled = "Cancelled",
-  Started = "Started",
-  Paused = "Paused",
-}
+export const timer: Writable<Timer> = writable({
+  secondsLeft: "0",
+  minutesLeft: 0,
+  timeLeft: undefined,
+  timer: null,
+  timerStatus: TimerStatus.Cancelled,
+  minutesDuration: undefined,
+});
+
+// Pause with enter or space
+const SPACE_KEYCODE = 32;
+const ENTER_KEYCODE = 13;
+const TRIGGER_KEYCODES = [SPACE_KEYCODE, ENTER_KEYCODE];
+const PAUSE_RESUME_STATUS = [TimerStatus.Started, TimerStatus.Paused];
+window.addEventListener("keydown", function (e) {
+  const timerStatus = get(timer).timerStatus;
+  if (
+    TRIGGER_KEYCODES.includes(e.keyCode) &&
+    e.target == document.body &&
+    PAUSE_RESUME_STATUS.includes(timerStatus)
+  ) {
+    e.preventDefault();
+    pauseOrResumeTimer();
+  }
+});
 
 export function toggleTimer(minutesToStart: number) {
   let timerStatus = get(timer).timerStatus;
@@ -104,28 +125,13 @@ function updateClock() {
   });
 }
 
-export const timer: Writable<Timer> = writable({
-  secondsLeft: "0",
-  minutesLeft: 0,
-  timeLeft: undefined,
-  timer: null,
-  timerStatus: TimerStatus.Cancelled,
-  minutesDuration: undefined,
-});
-
+// TODO: Is this sensible at this scope?
 let audioPlayed: boolean = false;
-
-document.onkeypress = function (event) {
-  let char = event.keyCode;
-  if (char && char === 13) {
-    pauseOrResumeTimer();
-  }
-};
 
 export function cancelTimer() {
   timer.update((t) => {
     clearTimeout(t.timer);
-    return { ...t, timer: null };
+    return { ...t, timer: null, timerStatus: TimerStatus.Cancelled };
   });
   audioPlayed = false;
 }
@@ -142,38 +148,3 @@ timer.subscribe((t) => {
     return;
   }
 });
-
-export const route: Writable<Route> = writable("home");
-
-export const settings: Writable<Settings> = writable(getSettings());
-
-function getSettings(): Settings {
-  const localStorageSettings = localStorage.getItem(SETTINGS_NAME);
-  const settings = localStorageSettings ? JSON.parse(localStorageSettings) : {};
-  return {
-    collapsed: {
-      expansionSelect: settings?.collapsed?.expansionSelect ?? false,
-    },
-    activeExpansions: settings?.activeExpansions ?? [ExpansionName.BASE_GAME],
-    selectedSets: {
-      bronzePromos: [],
-      silverPromos: [],
-      goldPromos: [],
-      expansionPacks: [],
-      premiumPacks: [],
-      masterPacks: [],
-      bronzePromoPrize: [],
-      silverPromoPrize: [],
-      metagameSets: [MetagameSet.ELEMENT, MetagameSet.TYPE],
-      ...settings?.selectedSets,
-    },
-  };
-}
-
-settings.subscribe((settings) => {
-  persist(settings);
-});
-
-export function persist(settings: Settings): void {
-  localStorage.setItem(SETTINGS_NAME, JSON.stringify({ ...settings }));
-}
