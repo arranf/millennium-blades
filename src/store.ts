@@ -1,4 +1,5 @@
-import { get, Writable, writable } from "svelte/store";
+import { get, writable } from "svelte/store";
+import type { Writable } from "svelte/store";
 import { ExpansionName } from "./types/ExpansionName";
 import type { Settings } from "./types/Settings";
 import { SETTINGS_NAME } from "./constants";
@@ -141,7 +142,6 @@ timer.subscribe((t) => {
     return;
   }
 });
-
 
 export const route: Writable<Route> = writable("home");
 
