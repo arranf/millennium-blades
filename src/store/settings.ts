@@ -2,7 +2,7 @@ import { get, writable } from "svelte/store";
 import type { Writable } from "svelte/store";
 import { ExpansionName } from "../types/ExpansionName";
 import type { Settings } from "../types/Settings";
-import { SETTINGS_NAME } from "../constants";
+import { DEFAULT_METAGAME_SETS, SETTINGS_NAME } from "../constants";
 import { MetagameSet } from "../data/cards";
 
 export const settings: Writable<Settings> = writable(getSettings());
@@ -24,7 +24,7 @@ function getSettings(): Settings {
       masterPacks: [],
       bronzePromoPrize: [],
       silverPromoPrize: [],
-      metagameSets: [MetagameSet.ELEMENT, MetagameSet.TYPE],
+      metagameSets: DEFAULT_METAGAME_SETS,
       ...settings?.selectedSets,
     },
   };

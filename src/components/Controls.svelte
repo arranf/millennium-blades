@@ -33,7 +33,7 @@
       masterPacks: getRandom(possibleSets.masterPacks, SELECT_COUNTS.masterPacks),
       bronzePromoPrize,
       silverPromoPrize,
-      metagameSets: getRandom(possibleSets.metagameSets, SELECT_COUNTS.metagame)
+      metagameSets: getRandom(possibleSets.metagameSets, SELECT_COUNTS.metagameSets)
     };
 
     settings.update(settings => ({
@@ -46,8 +46,6 @@
 <div class="mx-4 py-6 sm:px-6 lg:px-8">
   <div class="bg-white shadow rounded-lg">
     <div class="px-4 py-5 sm:p-6">
-
-
       <div class="w-full max-w flex justify-start content-start">    
         <PresetSelector on:presetselect={handlePresetSelect} />
         <button 

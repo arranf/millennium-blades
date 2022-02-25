@@ -1,6 +1,9 @@
+import { MetagameSet } from "./data";
+import type { SelectedSetName } from "./types";
+
 export const SETTINGS_NAME = "mb-settings";
 
-export const SELECT_COUNTS = {
+export const SELECT_COUNTS: Record<SelectedSetName, number> = {
   bronzePromos: 1,
   silverPromos: 1,
   goldPromos: 1,
@@ -9,5 +12,10 @@ export const SELECT_COUNTS = {
   masterPacks: 4,
   bronzePromoPrize: 1,
   silverPromoPrize: 1,
-  metagame: 2,
+  metagameSets: 2,
 };
+
+export const DEFAULT_METAGAME_SETS: Array<MetagameSet> = [
+  MetagameSet.ELEMENT,
+  MetagameSet.TYPE,
+];

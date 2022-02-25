@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { scale } from 'svelte/transition';
 
+  import { DEFAULT_METAGAME_SETS } from '../constants';
   import type { SelectedSets } from "../types";
 
   export let selectedSets: SelectedSets;
@@ -25,7 +26,6 @@
               </button>
               Selected Sets
             </h3>
-
 
           </div>
           {#if !collapsed}
@@ -69,6 +69,7 @@
                   ? selectedSets.bronzePromoPrize.concat(selectedSets.silverPromoPrize).join(", ")
                   : "None"}
               </p>
+              
               <p>
                 <strong>Metagame</strong>: {selectedSets.metagameSets.length > 0
                   ? selectedSets.metagameSets.sort().join(", ")

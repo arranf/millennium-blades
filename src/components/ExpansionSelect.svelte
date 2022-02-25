@@ -30,7 +30,6 @@
     activeExpansions = settings.activeExpansions;
     collapsed = settings.collapsed.expansionSelect;
   });
-
 </script>
 
 <div class="bg-white overflow-hidden shadow rounded-lg">

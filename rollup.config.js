@@ -9,6 +9,8 @@ import css from "rollup-plugin-css-only";
 
 const production = !process.env.ROLLUP_WATCH;
 
+console.log(`Running in production mode?: ${production}`);
+
 function serve() {
   let server;
 
