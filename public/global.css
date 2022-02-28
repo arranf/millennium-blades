@@ -1,5 +1,5 @@
 /*This would all go into the global.css file*/
-	[data-tooltip] {
+[data-tooltip] {
   position: relative;
   z-index: 2;
   display: block;
@@ -60,4 +60,9 @@
 [data-tooltip=false]:hover:after {
   visibility: hidden;
   opacity: 0;
+}
+
+/* Hack around Tailwind focus visible */
+h1:focus-visible {
+  outline: none !important;
 }

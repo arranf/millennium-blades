@@ -13,7 +13,7 @@ const newBeginnings: PresetOption = {
   name: "New Beginnings",
   order: 0,
   description:
-    "A beginner set-up. This build doesn’t have many complicated cards and often gives players a good idea of what each set is trying to do. Great for your first or second game, especially with newbies!",
+    "A beginner set-up. This build doesn't have many complicated cards and often gives players a good idea of what each set is trying to do. Great for your first or second game, especially with newbies!",
   requiredExpansions: [],
   preset: {
     bronzePromos: [BronzePromo.LEGEND_OF_FINAL_BADASS],
@@ -50,7 +50,7 @@ const fightMe: PresetOption = {
   name: "Fight Me!",
   order: 1,
   description:
-    "Feel like your games don’t have enough PvP? This build aims to fix that! Featuring a large variety of clashing and disruption, you can expect this set-up to be very interactive!",
+    "Feel like your games don't have enough PvP? This build aims to fix that! Featuring a large variety of clashing and disruption, you can expect this set-up to be very interactive!",
   requiredExpansions: [],
   preset: {
     bronzePromos: [BronzePromo.ELEMENTAL_BLADES],
