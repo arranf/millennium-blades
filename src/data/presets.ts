@@ -195,7 +195,7 @@ const strategicMode: PresetOption = {
 };
 
 const theNameGame: PresetOption = {
-  name: "Strategic Mode",
+  name: "The Name Game",
   order: 5,
   description:
     "Are you a card master? Test your card knowledge with this loadout that focuses on effects that let you name and predict cards. Knowledge is power with The Name Game!",
