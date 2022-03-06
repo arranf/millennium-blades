@@ -60,7 +60,7 @@
         </h4>
         {#if selectedPacks.length < limit}
           <div
-            class="inline-flex items-center max-h-8 lg:max-h-16 px-2.5 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800 ml-2.5"
+            class="inline-flex items-center lg:max-h-16 px-2.5 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800 ml-2.5"
           >
             Incomplete
             <span class="text-xs">
