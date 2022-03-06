@@ -54,13 +54,13 @@
 <div class="mx-4 py-6 sm:px-6 lg:px-8">
   <div class="bg-white overflow-hidden shadow rounded-lg">
     <div class="px-4 py-5 sm:p-6">
-      <div class="my-2 pb-5 border-b border-gray-200 flex">
+      <div class="my-2 pb-5 border-b border-gray-200 flex items-center align-baseline">
         <h4 class="text-lg leading-6 font-medium text-gray-900">
           {title} <span class="text-md">({limit})</span>
         </h4>
         {#if selectedPacks.length < limit}
           <div
-            class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800 ml-2.5"
+            class="inline-flex items-center max-h-8 lg:max-h-16 px-2.5 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800 ml-2.5"
           >
             Incomplete
             <span class="text-xs">
@@ -69,7 +69,7 @@
           </div>
         {:else}
           <div
-            class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800 ml-2.5"
+            class="inline-flex items-center max-h-8 lg:max-h-16 px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800 ml-2.5"
           >
             Complete
           </div>

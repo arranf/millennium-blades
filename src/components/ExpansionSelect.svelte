@@ -63,8 +63,9 @@
             ? 'bg-green-500 hover:bg-green-600 focus:ring-green-600 '
             : 'bg-indigo-500 hover:bg-indigo-600 focus:ring-indigo-600 '}
             {expansion == ExpansionName.BASE_GAME ? 'cursor-not-allowed' : ''}"
-          >{expansion}</button
-        >
+          >
+          {expansion}
+        </button>
       {/each}
     </div>
     {/if}

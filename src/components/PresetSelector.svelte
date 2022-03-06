@@ -41,7 +41,7 @@
       <div class="inline-flex shadow-sm rounded-md divide-x divide-white-200">
         <div class="relative z-0 inline-flex shadow-sm rounded-md divide-x divide-white-200">
           <div class="relative inline-flex items-center bg-indigo-500 py-2 pl-3 pr-4 border border-transparent rounded-l-md shadow-sm text-white">
-            <p class="ml-2.5 text-sm">
+            <p class="ml-2.5 md:text-sm text-base">
               Select Preset Store Build
             </p>
           </div>

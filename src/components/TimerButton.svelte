@@ -2,6 +2,8 @@
 
   import {timer, TimerStatus, toggleTimer} from '../store';
   export let minutes: number;
+  export let extraClasses: string;
+
   let timerStatus : TimerStatus;
   let timerDuration: number | undefined;
   let isDisabled: boolean = false;
@@ -15,9 +17,9 @@
 
     function getClass() {
       if (isDisabled) {
-        return "text-gray-500 px-3 py-2 rounded-md text-sm disabled:opacity-50"
+        return `text-gray-500 px-3 py-2 rounded-md font-medium disabled:opacity-50 ${extraClasses}`
       }
-      return "text-gray-300 px-3 py-2 rounded-md text-sm hover:bg-gray-700 hover:text-white"
+      return `text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium ${extraClasses}`
     }
 
 </script>
@@ -33,7 +35,7 @@
       {:else if timerStatus === TimerStatus.Started && !isDisabled}
         Pause Timer
       {:else}
-        Start <span class="font-bold">{minutes}</span> Minute Timer
+        Start <span class="md:font-semibold">{minutes}</span> Minute Timer
       {/if}
       </button>
  </div>
