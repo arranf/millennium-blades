@@ -60,16 +60,16 @@
         </h4>
         {#if selectedPacks.length < limit}
           <div
-            class="inline-flex items-center lg:max-h-16 px-2.5 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800 ml-2.5"
+            class="inline-flex flex-col lg:flex-row place-items-center lg:max-h-24 px-2.5 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800 ml-2.5"
           >
             Incomplete
-            <span class="text-xs">
+            <span class="text-xs text-center">
               &nbsp;({limit - selectedPacks.length} selections remaining)</span
             >
           </div>
         {:else}
           <div
-            class="inline-flex items-center max-h-8 lg:max-h-16 px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800 ml-2.5"
+            class="inline-flex items-center max-h-8 lg:max-h-24 px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800 ml-2.5"
           >
             Complete
           </div>
