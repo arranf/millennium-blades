@@ -43,7 +43,7 @@ let isMobileMenuHidden = true;
         <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">
             <Navlink to="/" extraClasses="text-sm">Home</Navlink>
-            <!-- <Navlink to="/scoring" extraClasses="text-sm">Scoring</Navlink> -->
+            <Navlink to="/scoring" extraClasses="text-sm">Scoring</Navlink>
 
             <Timer minutes={7} extraClasses="text-sm" />
             <Timer minutes={6} extraClasses="text-sm" />
@@ -73,7 +73,7 @@ let isMobileMenuHidden = true;
   <div class="sm:hidden" id="mobile-menu" class:hidden="{isMobileMenuHidden}">
     <div class="px-2 pt-2 pb-3 space-y-1">
       <Navlink to="/" extraClasses="block text-base">Home</Navlink>
-      <!-- <Navlink to="/scoring" extraClasses="block text-base">Scoring</Navlink> -->
+      <Navlink to="/scoring" extraClasses="block text-base">Scoring</Navlink>
         <Timer minutes={7} extraClasses="block text-base"/>
         <Timer minutes={6} extraClasses="block text-base"/>
         <Timer minutes={3} extraClasses="block text-base"/>

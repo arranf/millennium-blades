@@ -1,7 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-	import { scale } from 'svelte/transition';
-
+	
   import { ExpansionName } from "../types";
   import {settings} from "../store";
 
@@ -35,7 +34,7 @@
 <div class="bg-white overflow-hidden shadow rounded-lg">
   <div class="px-2 py-3 sm:p-6">
     <div class="my-1 pb-2 border-b border-gray-200">
-      <h3 class="text-md leading-3 font-medium text-gray-900">
+      <h3 class="text-lg leading-6 font-medium text-gray-900">
         <button on:click={() => toggleCollapse()}>
           {#if collapsed}
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -51,7 +50,7 @@
       </h3>
     </div>
     {#if !collapsed}
-    <div transition:scale>
+    <div>
       {#each Object.values(ExpansionName) as expansion}
         <button
           on:click={() => toggleExpansion(expansion)}

@@ -1,15 +1,16 @@
-import { get, writable } from "svelte/store";
+import { writable } from "svelte/store";
 import type { Writable } from "svelte/store";
 import { ExpansionName } from "../types/ExpansionName";
 import type { Settings } from "../types/Settings";
 import { DEFAULT_METAGAME_SETS, SETTINGS_NAME } from "../constants";
-import { MetagameSet } from "../data/cards";
 
 export const settings: Writable<Settings> = writable(getSettings());
 
 function getSettings(): Settings {
   const localStorageSettings = localStorage.getItem(SETTINGS_NAME);
-  const settings = localStorageSettings ? JSON.parse(localStorageSettings) : {};
+  const settings: Partial<Settings> = localStorageSettings
+    ? JSON.parse(localStorageSettings)
+    : {};
   return {
     collapsed: {
       expansionSelect: settings?.collapsed?.expansionSelect ?? false,
@@ -27,6 +28,8 @@ function getSettings(): Settings {
       metagameSets: DEFAULT_METAGAME_SETS,
       ...settings?.selectedSets,
     },
+    playerCount: settings?.playerCount ?? 4,
+    isPreRelease: false,
   };
 }
 

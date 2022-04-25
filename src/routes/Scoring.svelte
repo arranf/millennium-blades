@@ -1,18 +1,9 @@
 <script lang="ts">
-  
+  import ScoringInput from "../components/ScoringInput.svelte";
+  import ScoringSelect from "../components/ScoringSelect.svelte";
 </script>
 
 <div>
-  <!-- How many columns? -->
-  <!-- Pre release or not? -->
-
-  <!-- For each game:
-    Collection
-    Tournament
-
-    At the end:
-    * friendship
-    * NPC
-    
-    -->
+    <ScoringSelect/>
+    <ScoringInput />
 </div>

@@ -72,8 +72,6 @@ export function pauseOrResumeTimer() {
 }
 
 function startTimer(minutes: number) {
-  let timerStatus = get(timer).timerStatus;
-  timerStatus = TimerStatus.Started;
   const currentTimer = get(timer);
   if (currentTimer.timer) {
     return;

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { scale } from 'svelte/transition';
 
   import { DEFAULT_METAGAME_SETS } from '../constants';
   import type { SelectedSets } from "../types";
@@ -29,7 +28,7 @@
 
           </div>
           {#if !collapsed}
-            <div transition:scale>
+            <div>
               <p>
                 <strong>Expansion Sets</strong>: {selectedSets.expansionPacks
                   .length > 0

@@ -1,5 +1,5 @@
 <script lang="ts">
-  
+
   import Header from "../structure/Header.svelte";
   import Countdown from "../structure/Countdown.svelte";
 
@@ -7,15 +7,21 @@
   import Scoring from "../routes/Scoring.svelte";
 
 	import { Router, Route } from "svelte-navigator";
+
+
+  export let url = "";
 </script>
 
-<main>
-  <Router>
+<Router url="{url}">
   <Header />
   <Countdown />
-    <Route path="/">
-      <Home />
-      <Scoring />
-    </Route>
-  </Router>
-</main>
+
+  <main>
+  <Route path="/">
+    <Home />
+  </Route>
+  <Route path="/scoring">
+    <Scoring />
+  </Route>
+  </main> 
+</Router>
