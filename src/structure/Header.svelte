@@ -77,7 +77,7 @@ let isMobileMenuHidden = true;
         <Timer minutes={7} extraClasses="block text-base"/>
         <Timer minutes={6} extraClasses="block text-base"/>
         <Timer minutes={3} extraClasses="block text-base"/>
-        <a href="https://static1.squarespace.com/static/5865e4d4f7e0ab0f0ee24ced/t/5f36e7352954a607ba5ebfd6/1597433664289/Collusion+Full+Rules.pdf"
+        <a href="https://drive.google.com/file/d/1b4QefBSPDVy5aSp5Z-uFNlm-vNOd3kJ_/view"
           target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium block text-base">
           Official Rules
         </a>
