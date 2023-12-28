@@ -65,7 +65,7 @@
       if (detail.isAll) {
         activeExpansions = Object.values(ExpansionName).map((e) => e);
       } else {
-        activeExpansions = [];
+        activeExpansions = [ExpansionName.BASE_GAME];
       }
       return {
         ...settings,
