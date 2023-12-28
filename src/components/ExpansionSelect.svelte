@@ -75,14 +75,14 @@
             class="inline-flex items-center mx-1 my-1 px-2 py-1 border border-transparent text-sm font-small rounded-md shadow-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 bg-yellow-400 hover:bg-yellow-600 focus:ring-yellow-600"
             on:click={() => selectAllOrNoneExpansions(true)}
           >
-            Select All
+            All the expansions!
           </button>
 
           <button
             class="inline-flex items-center mx-1 my-1 px-2 py-1 border border-transparent text-sm font-small rounded-md shadow-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 bg-gray-500 hover:bg-slate-600 focus:ring-slate-600"
             on:click={() => selectAllOrNoneExpansions(false)}
           >
-            Select None
+            Base Game
           </button>
         {/if}
       </h3>
