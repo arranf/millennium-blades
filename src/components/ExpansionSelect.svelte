@@ -1,6 +1,5 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import { scale } from "svelte/transition";
 
   import { ExpansionName } from "../types";
   import { settings } from "../store";
@@ -89,7 +88,7 @@
       </h3>
     </div>
     {#if !collapsed}
-      <div transition:scale>
+      <div>
         {#each Object.values(ExpansionName) as expansion}
           <button
             on:click={() => toggleExpansion(expansion)}
