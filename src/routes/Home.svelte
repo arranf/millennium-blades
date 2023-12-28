@@ -4,12 +4,10 @@
   import { expansions, ExpansionName } from "../data";
   import type { Expansion, Sets, SelectedSets } from "../types";
 
-
   import ExpansionSelect from "../components/ExpansionSelect.svelte";
   import SetSelect from "../components/SetSelect.svelte";
   import SetView from "../components/SelectedSetView.svelte";
   import Controls from "../components/Controls.svelte";
-  
 
   import { SELECT_COUNTS } from "../constants";
   import { settings } from "../store";
@@ -21,7 +19,7 @@
 
   function filter(activeExpansions: ExpansionName[]) {
     return expansions.filter((e: Expansion) =>
-      activeExpansions.length === 0 ? true : activeExpansions.includes(e.name)
+      activeExpansions.length === 0 ? true : activeExpansions.includes(e.name),
     );
   }
 
@@ -39,7 +37,11 @@
     };
   }
 
-  function handleExpansionChange({ detail } : {detail: {expansion: ExpansionName}}) {
+  function handleExpansionChange({
+    detail,
+  }: {
+    detail: { expansion: ExpansionName };
+  }) {
     settings.update((settings) => {
       const indexOf = settings.activeExpansions.indexOf(detail.expansion);
       const activeExpansions = settings.activeExpansions;
@@ -48,6 +50,22 @@
         activeExpansions.splice(indexOf, 1);
       } else {
         activeExpansions.push(detail.expansion);
+      }
+      return {
+        ...settings,
+        activeExpansions,
+      };
+    });
+    possibleSets = getPossibleSets();
+  }
+
+  function handleExpansionsSet({ detail }: { detail: { isAll: boolean } }) {
+    settings.update((settings) => {
+      let activeExpansions: ExpansionName[] = [];
+      if (detail.isAll) {
+        activeExpansions = Object.values(ExpansionName).map((e) => e);
+      } else {
+        activeExpansions = [];
       }
       return {
         ...settings,
@@ -70,7 +88,10 @@
 <div>
   {#if activeExpansions && filteredExpansions && possibleSets}
     <div class="mx-4 py-6 sm:px-6 lg:px-8">
-      <ExpansionSelect on:expansionchange={handleExpansionChange} />
+      <ExpansionSelect
+        on:selectallornone={handleExpansionsSet}
+        on:expansionchange={handleExpansionChange}
+      />
 
       <SetView {selectedSets} />
 
