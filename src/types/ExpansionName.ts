@@ -1,4 +1,4 @@
-export const enum ExpansionName {
+export enum ExpansionName {
   BASE_GAME = "Base Game",
   SET_ROTATION = "Set Rotation",
   COLLUSION = "Collusion",
