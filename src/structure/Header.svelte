@@ -1,8 +1,8 @@
 <script lang="ts">
-import Navlink from "../components/Navlink.svelte";
-import Timer from "../components/TimerButton.svelte";
+  import Navlink from "../components/Navlink.svelte";
+  import Timer from "../components/TimerButton.svelte";
 
-let isMobileMenuHidden = true;
+  let isMobileMenuHidden = true;
 </script>
 
 <nav class="bg-gray-800">
@@ -10,8 +10,12 @@ let isMobileMenuHidden = true;
     <div class="relative flex items-center justify-between h-16">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
         <!-- Mobile menu button-->
-        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false"
-          on:click="{() => isMobileMenuHidden = !isMobileMenuHidden}"
+        <button
+          type="button"
+          class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          on:click={() => (isMobileMenuHidden = !isMobileMenuHidden)}
         >
           <span class="sr-only">Open main menu</span>
           <!--
@@ -21,8 +25,22 @@ let isMobileMenuHidden = true;
 
             Menu open: "hidden", Menu closed: "block"
           -->
-          <svg class:hidden="{!isMobileMenuHidden}" class:block="{isMobileMenuHidden}" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <svg
+            class:hidden={!isMobileMenuHidden}
+            class:block={isMobileMenuHidden}
+            class="h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
           <!--
             Icon when menu is open.
@@ -31,12 +49,28 @@ let isMobileMenuHidden = true;
 
             Menu open: "block", Menu closed: "hidden"
           -->
-          <svg class:hidden="{isMobileMenuHidden}" class:block="{!isMobileMenuHidden}" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          <svg
+            class:hidden={isMobileMenuHidden}
+            class:block={!isMobileMenuHidden}
+            class="h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
       </div>
-      <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+      <div
+        class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start"
+      >
         <div class="flex-shrink-0 flex items-center text-white">
           timetoduel.app
         </div>
@@ -47,9 +81,11 @@ let isMobileMenuHidden = true;
 
             <Timer minutes={7} extraClasses="text-sm" />
             <Timer minutes={6} extraClasses="text-sm" />
-            <Timer minutes={3} extraClasses="text-sm"/>
-             <a href="https://static1.squarespace.com/static/5865e4d4f7e0ab0f0ee24ced/t/5f36e7352954a607ba5ebfd6/1597433664289/Collusion+Full+Rules.pdf"
-              target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium text-sm">
+            <Timer minutes={3} extraClasses="text-sm" />
+            <a
+              href="https://files.arranfrance.com/Collusion%2BFull%2BRules.pdf"
+              class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium text-sm"
+            >
               Official Rules
             </a>
           </div>
@@ -70,18 +106,21 @@ let isMobileMenuHidden = true;
   </div>
 
   <!-- Mobile menu, show/hide based on menu state. -->
-  <div class="sm:hidden" id="mobile-menu" class:hidden="{isMobileMenuHidden}">
+  <div class="sm:hidden" id="mobile-menu" class:hidden={isMobileMenuHidden}>
     <div class="px-2 pt-2 pb-3 space-y-1">
       <Navlink to="/" extraClasses="block text-base">Home</Navlink>
       <!-- <Navlink to="/scoring" extraClasses="block text-base">Scoring</Navlink> -->
-        <Timer minutes={7} extraClasses="block text-base"/>
-        <Timer minutes={6} extraClasses="block text-base"/>
-        <Timer minutes={3} extraClasses="block text-base"/>
-        <a href="https://drive.google.com/file/d/1b4QefBSPDVy5aSp5Z-uFNlm-vNOd3kJ_/view"
-          target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium block text-base">
-          Official Rules
-        </a>
+      <Timer minutes={7} extraClasses="block text-base" />
+      <Timer minutes={6} extraClasses="block text-base" />
+      <Timer minutes={3} extraClasses="block text-base" />
+      <a
+        href="https://files.arranfrance.com/Collusion%2BFull%2BRules.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md font-medium block text-base"
+      >
+        Official Rules
+      </a>
     </div>
   </div>
 </nav>
-
