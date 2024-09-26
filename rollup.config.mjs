@@ -2,10 +2,12 @@ import svelte from "rollup-plugin-svelte";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import livereload from "rollup-plugin-livereload";
-import { terser } from "rollup-plugin-terser";
-import sveltePreprocess from "svelte-preprocess";
+import terser  from "@rollup/plugin-terser";
+import { sveltePreprocess } from 'svelte-preprocess'
 import typescript from "@rollup/plugin-typescript";
-import css from "rollup-plugin-css-only";
+// import css from "rollup-plugin-css-only";
+
+import {spawn} from 'node:child_process'
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -21,7 +23,7 @@ function serve() {
   return {
     writeBundle() {
       if (server) return;
-      server = require("child_process").spawn(
+      server = spawn(
         "npm",
         ["run", "start", "--", "--dev"],
         {
@@ -54,7 +56,7 @@ export default {
     }),
     // we'll extract any component CSS out into
     // a separate file - better for performance
-    css({ output: "bundle.css" }),
+    // css({ output: "bundle.css" }),
 
     // If you have external dependencies installed from
     // npm, you'll most likely need these plugins. In
@@ -65,10 +67,9 @@ export default {
       browser: true,
       dedupe: ["svelte"],
     }),
-    commonjs(),
     typescript({
       sourceMap: production,
-      inlineSources: !production,
+      inlineSourceMap: !production,
     }),
 
     // In dev mode, call `npm run start` once
